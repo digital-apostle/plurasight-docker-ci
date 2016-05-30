@@ -13,7 +13,4 @@ node_js:
 after_success:
 # notify Docker Hub to make a new build
 # [ "$TRAVIS_BRANCH" == "master" ]
- -  >
-  && curl -X POST -H "Content-Type: application/json"
-  --data '{"build": "true"}'
-  https://registry.hub.docker.com/u/digitaldisciple/plurasight-docker-ci:/trigger/$DOCKER_HUB_TOKEN/
+ - $DOCKER_HUB_TRIGGER_URL/$DOCKER_HUB_TOKEN 
